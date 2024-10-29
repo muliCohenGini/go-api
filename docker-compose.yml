@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  cellcomunity:
+    container_name: cellcomunity
+    image: cellcomunity:1.0.0
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - cellcom_local
+    volumes:
+      - ./cmd/api:/usr/app
+
+  cellcom_local:
+    container_name: cellcom_local
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: docker
+      POSTGRES_USER: postgres
+      POSTGRES_DB: cellcom_local
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/dataV
+
+volumes:
+  pgdata: {}

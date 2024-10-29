@@ -1,0 +1,15 @@
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+.env
+all_code_combined.txt
+vendor/
+bin
+.idea
+.DS_Store
+.vscode
